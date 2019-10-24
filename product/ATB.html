@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>爱淘宝</title><link rel="stylesheet" href="./library/iconfont.css"><link rel="stylesheet" href="./css/all.css"></head><body><!-- 顶部 --><div id="head"><!-- 顶部导航栏 --><div id="topNav"><ul id="topContent"><div id="topLeft"></div><div id="topRight"></div></ul></div><div class="clear"></div><!-- 顶部广告 --><div id="topAd"></div></div><!-- 搜索区 --><div id="SB"><div id="search"><div id="searchLogo"><a href="" class="icon iconfont icon-aitaobao"></a><div></div></div><div id="searchBox"><form action="http://localhost/ATB/js/ATB.php"><input type="text" id="searchIpt"> <button id="searchBtn">搜 索</button></form><p id="searchKey"></p></div><div id="searchAd"></div></div></div><!-- 导航菜单 --><div id="Nav"><div><div id="empty"></div><ul id="nav"></ul></div></div><!-- 内容 --><div id="body"><!-- 主视区 --><div id="main"><div id="mainLeft"><div id="mainLeftTop"><a href=""><em class="icon iconfont"></em> <span></span></a></div><ul id="mainLeftNav"><li><div class="mLNLeft"><a href=""></a></div><div class="mLNRight"></div><div class="mainLeftNavHidden"></div></li><li><div class="mLNLeft"><a href=""></a></div><div class="mLNRight"></div><div class="mainLeftNavHidden"></div></li><li><div class="mLNLeft"><a href=""></a></div><div class="mLNRight"></div><div class="mainLeftNavHidden"></div></li><li><div class="mLNLeft"><a href=""></a></div><div class="mLNRight"></div><div class="mainLeftNavHidden"></div></li><li><div class="mLNLeft"><a href=""></a></div><div class="mLNRight"></div><div class="mainLeftNavHidden"></div></li><li><div class="mLNLeft"><a href=""></a></div><div class="mLNRight"></div><div class="mainLeftNavHidden"></div></li><li><div class="mLNLeft"><a href=""></a></div><div class="mLNRight"></div><div class="mainLeftNavHidden"></div></li><li><div class="mLNLeft"><a href=""></a></div><div class="mLNRight"></div><div class="mainLeftNavHidden"></div></li></ul></div><div id="mainRight"><div id="mainRightTop"><div id="mainRightTopCarsousel" class="carBox"><ul id="carousel1Box" class="carImgBox"></ul><div id="carLeftNav" class="carLeftBtn"><em class="icon iconfont icon-shangjiantou"></em></div><div id="carRightNav" class="carRightBtn"><em class="icon iconfont icon-shangjiantou"></em></div></div><div id="mainRightTopAd" class="newsad"></div><div id="mainRightTopRight"><div id="mainRightTopRightTop"><a href=""><em class="icon iconfont icon-yuanwujiaoxing"></em> <span>我的淘宝</span></a></div><ul id="mainRightTopNav"></ul></div></div><div id="mainRightBottom"><div id="mainRightBottomLeft"><div id="mainRightBottomLeftMain"><div id="mainBotmRightTop"><div id="mainRightTopLeft"><a href=""><em></em> <span></span></a></div><div id="mainRightTopRig"><a href=""><em></em> <span></span></a></div></div><div id="mainRightBttomCarsousel" class="carBox"><ul id="carousel2Box" class="carImgBox"></ul><div id="carLeftNav1" class="carLeftBtn"><em class="icon iconfont icon-shangjiantou"></em></div><div id="carRightNav1" class="carRightBtn"><em class="icon iconfont icon-shangjiantou"></em></div></div><div id="mainRightBotmNews"></div></div><div id="mainRightBotmAd" class="newsad"></div></div><div id="mainRightBottomAd" class="newsad"></div></div></div></div><!-- 楼层 --><div id="floor"><div id="discount"><div id="discountLeft"><div id="discountLeftTop"><div id="discutLefTopTitle"><a href="">淘宝折扣 <em class="icon iconfont icon-tuangouzhekou"></em> <span></span></a></div><ul id="discutTopContent"><div class="discutTopContentLineShu"></div><div class="discutTopContentLineHeng"></div><div class="discutTopContentLineHeng"></div><div class="discutTopContentLineHeng"></div></ul></div><div id="discountLeftBottom"><h4></h4><ul id="discutBtmContent"></ul></div></div><div id="discountRight"><div id="discountCar"><ul id="car3Box"></ul></div><div id="car3Chose"><em>1/5</em><p></p></div></div></div><!--模板--><script id="temp" type="text/html" data-type="art-template">{{each comments}}
+				<div class="floorsBox">
+					<div class="FBleft">
+						<!-- 标题 -->
+						<h4>{{$value.left.title}}</h4>
+						<span class="floorLeftTitleAd">{{$value.left.titleNew}}</span>
+						<!-- 图片 -->
+						<div class="FBLimg">
+							<a href=" ">
+								<img data-src={{$value.left.pic.src}} alt="">
+								<p>{{$value.left.pic.newsad}}</p>
+							</a>
+						</div>
+						<!-- 左下方 -->
+						{{set value1 = $value}}<!-- 设置变量存储当前循环 -->
+						<div class="FBLbottom">
+							{{each $value.left.content.title}}
+								<p>
+									<a href=" ">{{$value}}</a>
+									<span>
+										{{each value1.left.content.content[$index]}}<!-- 拿到存储的变量循环数据 -->
+											<a href="" class="FBLBText">{{$value}}</a>
+										{{/each}}	
+									</span>
+								</p>
+							{{/each}}
+						</div>
+					</div>
+					<div class="FBright">
+						<!-- 右侧标题 -->
+						<div class="FBrightTop">
+							<a href=" " class="FBrightTopTitle">{{$value.center.title}}</a>
+							<a href=" " class="floorsMore">更多</a>
+						</div>
+						<!-- 右侧下边 -->
+						<div class="FBrightBottomLeft">
+							<ul>
+								{{each $value.center.pic.src}}
+									<a href=" " class="FloorsImga">
+										<span class="FloorImgText">{{value1.center.pic.newsad[$index]}}</span>
+										<img src="" data-src="{{$value}}" alt="">
+									</a>
+								{{/each}}
+							</ul>
+						</div>
+						<!-- 右侧的右侧 -->
+						<div class="FBRright">
+							<!-- 右侧的右侧的上部 -->
+							<ul class="FBRrightTop">
+								{{each $value.right.pic.src}}
+									<a href=" " class="FBRRTnav">
+										<img src="{{$value}}" alt="">
+										<span>{{value1.right.pic.newsad[$index]}}</span>
+									</a>
+								{{/each}}
+							</ul>
+							<!-- 割线 -->
+							<div class="FBRrightLine"></div>
+							<!-- 右侧的右侧的下部分 -->
+							<ul class="FBRrightBottom">
+								<h5>今日热门推荐</h5>
+								{{each $value.right.news}}
+									<a href="" class="floorRightNews">{{$value}}</a>
+								{{/each}}
+							</ul> 						
+						</div>
+					</div>
+				</div>
+			{{/each}}</script></div><!-- 推荐区 --><div id="recommend"><h3>猜你喜欢</h3><em>每日为你精心挑选</em><div id="recomBox"></div><div id="pageChose"><div id="pageOneBox"></div><div id="pageTwoBox"></div><span id="pageOne" class="recomChangecolor">1</span> <span id="pageTwo">2</span></div></div></div><!-- 页尾 --><div id="foot"><div id="firend"><p><span><a href="">阿里巴巴集团</a></span><b>|</b><span><a href="">淘宝</a></span><b>|</b><span><a href="">天猫</a></span><b>|</b><span><a href="">聚划算</a></span><b>|</b><span><a href="">全球速卖通</a></span><b>|</b><span><a href="">阿里巴巴国际交易市场</a></span><b>|</b><span><a href="">1688</a></span><b>|</b><span><a href="">阿里妈妈</a></span><b>|</b><span><a href="">飞猪</a></span><b>|</b><span><a href="">阿里云计算</a></span><b>|</b><span><a href="">AliOS</a></span><b>|</b><span><a href="">阿里通信</a></span><b>|</b><span><a href="">一淘</a></span><b>|</b><span><a href="">万网</a></span><b>|</b><span><a href="">高德</a></span><b>|</b><span><a href="">UC</a></span><b>|</b><span><a href="">友盟</a></span><b>|</b><span><a href="">虾米</a></span><b>|</b><span><a href="">大麦网</a></span><b>|</b><span><a href="">钉钉</a></span><b>|</b><span><a href="">支付宝</a></span><b>|</b><span><a href="">优酷</a></span><b>|</b><span><a href="">土豆</a></span><b>|</b><span><a href="">阿里健康</a></span><b>|</b><span><a href="">阿里影业</a></span><b>|</b><span><a href="">阿里体育</a></span><b>|</b><span><a href="">网商银行</a></span><b>|</b><span><a href="">淘宝台湾</a></span><b>|</b></p></div><div id="SSL"><p><span><a href="">关于淘宝</a></span> <span><a href="">合作伙伴</a></span> <span><a href="">营销中心</a></span> <span><a href="">廉政举报</a></span> <span><a href="">联系客服</a></span> <span><a href="">开放平台</a></span> <span><a href="">诚征英才</a></span> <span><a href="">联系我们</a></span> <span><a href="">网站地图</a></span> <span><a href="">隐私权政策</a></span> <span><a href="">法律名声</a></span> <span><a href="">知识产权</a></span> <b>|</b> <em>© 2003-现在 Taobao.com 版权所有</em></p><p><span><a href="">增值电信业务经营许可证：浙B2-20080224</a></span> <b>|</b> <span><a href="">增值电信业务经营许可证（跨地区）： B2-20150210</a></span> <b>|</b> <span><a href="">浙网文（2019）1033-086号</a></span> <b>|</b> <em>浙江省网络食品销售第三方平台提供者备案：浙网食A33010001</em></p><p><em>互联网药品信息服务资格证书（浙）-经营性-2018-0010</em> <b>|</b> <em>短消息类服务接入代码使用证书：号【2016】00154-A01</em> <b>|</b> <em>信息网络传播视听许可证：1109364号</em> <b>|</b> <em>出版物网络交易平台服务经营备案号：新出发浙备字第002号</em></p><p><span><a href=""><span id="PCLogo"></span> 浙公网安备 33010002000078号 </a></span><b>|</b> <em>广播电视节目制作经营许可证（浙）字第01012号</em> <b>|</b> <em>市场名称登记证：工商网市字3301004120号</em> <b>|</b> <em>医疗器械网络交易服务第三方平台备案：（浙）网械平台备字[2018]第00004号</em></p></div></div><!-- 左侧导航 --><div id="leftNav"></div><!-- 右侧导航 --><div id="rightNav"></div></body><script src="./library/jquery-3.4.1.min.js"></script><script src="./library/art-template.js"></script><script src="./js/all.js"></script></html>

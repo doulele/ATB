@@ -1,0 +1,34 @@
+{
+  "name": "atb",
+  "version": "1.0.0",
+  "description": "ATB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doulele/ATB.git"
+  },
+  "keywords": [
+    "TB"
+  ],
+  "author": "doulele",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doulele/ATB/issues"
+  },
+  "homepage": "https://github.com/doulele/ATB#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect-php": "^1.0.3",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^6.1.1",
+    "gulp-load-plugins": "^2.0.1",
+    "gulp-uglify": "^3.0.2"
+  }
+}

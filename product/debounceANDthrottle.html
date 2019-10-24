@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>debounce and throttle</title><style>body{
+			width:100%;
+			height: 9000px;
+		}</style></head><body><input type="text"></body><script>//防抖函数,节流函数都是为了提升浏览器性能;
+
+	//防抖函数就像是弹簧,手一直按压的时候不停的蓄力,当手松开的时候才从松开的位置弹开;
+	//应用的场景:1,输入框输入只有最后一次输入完才发送请求;2,手机号邮箱等验证;3,窗口resize调整大小时最后一次计算大小,防止重复渲染;
+		function debounce(func,wait){
+			var timer;
+			return function(){
+				clearTimeout(timer);
+				timer=setTimeout(func,wait);
+			}
+		}
+
+		function alt(){
+			console.log('我输完了')
+		}
+		document.documentElement.getElementsByTagName('input')[0].addEventListener('input',debounce(alt,1000))
+	//节流函数就像是水龙头滴水;不管你操作多少次,总是隔一段时间执行一次;
+	//应用场景:1,滚动加载,加载更多或滚动到底部;2,搜索框的联想功能;3,高频点击提交,表单重复提交;
+		function throttle(func,wait){//setTimeout版
+			var timer;
+			return function(){
+				if (timer) {//如果timer有值就什么都不返回;让上一个timer执行完
+					return;
+				}
+				timer=setTimeout(function(){
+					func();
+					timer=null;//执行完之后把timer设置为null
+				},wait)
+			}
+		}
+		function scro(){
+			console.log('我滴了一滴水')
+		}
+		document.addEventListener('scroll',throttle(scro,1000));
+
+		var preTime=0;
+		function throttleDate(){//时间戳版
+			var now=new Date();
+			if (now - preTime > 500) {
+				console.log('我是时间戳版的节流');
+				preTime=now;
+			}
+		}
+		document.addEventListener('scroll',throttleDate);</script></html>
