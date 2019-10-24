@@ -19,6 +19,7 @@ gulp.task('css',function(){
 gulp.task('js',function(){
 	return gulp.src('develop/js/*.js')
 	.pipe($.concat('all.js'))
+	.pipe($.uglify())
 	.pipe(gulp.dest('product/js'))
 	.pipe(browserSync.reload({stream:true}))
 })
